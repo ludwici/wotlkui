@@ -1,5 +1,5 @@
 .. meta::
-   :keywords: lua, xml, trinitycore, trinity, mangos, cmangos, azerothcore, script, scripting, doc, docs, documentation, ui, addons, wotlk
+   :keywords: wotklui, lua, xml, trinitycore, trinity, mangos, cmangos, azerothcore, script, scripting, doc, docs, documentation, ui, addons, wotlk
 
 
 WotlkUi documentation
@@ -13,3 +13,4 @@ There base ui documentation for working with World of Warcraft: Wrath of The Lic
    :maxdepth: 1
 
    xml/index
+   scripts/index

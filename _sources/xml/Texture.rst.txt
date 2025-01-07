@@ -1,10 +1,13 @@
+.. meta::
+   :keywords: wotklui, texture, lua, xml, trinitycore, trinity, mangos, cmangos, azerothcore, script, scripting, doc, docs, documentation, ui, addons, wotlk
+
 .. _xml_Texture:
 
 Texture
 =======
 
 **<Texture>** (inherits from :ref:`<LayoutFrame><xml_LayoutFrame>`, creates a Texture widget) draws an image, solid color, or gradient.
-Textures are layered UI elements, meaning they must be inside <Layers><Layer> tags.
+Textures are layered UI elements, meaning they must be inside <Layer> tag.
 
 .. code-block:: xml
 
@@ -16,7 +19,7 @@ Textures are layered UI elements, meaning they must be inside <Layers><Layer> ta
 
 Attributes
 ----------
-* **file** (string :abbr:`? (optional)`) - resource file path to the texture image
+* **file** (string :abbr:`? (optional)`) - Resource file path to the texture image
 * **alphaMode** (APLHAMODE :abbr:`? (optional)`) - Blending mode
 * **alpha** (float :abbr:`? (optional)`) - Set opacity from 0 to 1 (default value)
 * **nonBlocking** (boolean :abbr:`? (optional)`) - :abbr:`? (Needs summary)`
@@ -33,6 +36,19 @@ Summary
 -------
 The graphic may be an image loaded by Blizzard or an addon, or it may be a solid color or gradient. Textures support partially transparent images and different strategies for blending these into other images. They may be changed to show only a portion of a loaded image using texture coordinates. Note: The Texture must be within a <Layer>.
 
+The file can be in BLP or TGA format.
+
+.. important::
+    The dimension of the picture should be a multiple of two. For example 32x32, 128x64, 512x1024, etc.
+
+
+.. dropdown:: Scripts
+
+    * :ref:`Show()<scripts_Texture_Show>`
+
+    * :ref:`Hide()<scripts_Texture_Hide>`
+
+
 Examples
 --------
 
@@ -48,7 +64,7 @@ Examples
 
 .. code-block:: xml
 
-    <Frame name="MyPanelFrame" inherits="UIPanelDialogTemplate">
+    <Frame name="MyPanelFrame" parent="UIParent" inherits="UIPanelDialogTemplate">
         <Size x="200" y="170"/>
         <Anchors>
             <Anchor point="CENTER"/>
@@ -77,16 +93,23 @@ Or using lua
 
 .. code-block:: lua
 
-    local tex1 = MyPanelFrame:CreateTexture()
+    local frame = CreateFrame("Frame", "MyPanelFrame", UIParent, "UIPanelDialogTemplate")
+    frame:SetSize(200, 170)
+    frame:SetPoint("CENTER")
+
+    local tex1 = frame:CreateTexture()
     tex1:SetSize(50, 50)
     tex1:SetPoint("TOPLEFT", 10, -30)
     tex1:SetTexture("Interface/Tooltips/UI-Tooltip-Background")
     tex1:SetVertexColor(0.5, 0, 0, 0.5)
 
-    local tex2 = MyPanelFrame:CreateTexture()
+    local tex2 = frame:CreateTexture()
     tex2:SetSize(50, 50)
     tex2:SetPoint("BOTTOMRIGHT", -10, 15)
     tex2:SetTexture("Interface/Tooltips/UI-Tooltip-Background")
     tex2:SetVertexColor(0, 1, 0, 0.5)
+
+.. note::
+    In XML you can just set the color. In lua you should set texture, and then change the color.
 
 .. image:: ../images/texture/example1.jpg

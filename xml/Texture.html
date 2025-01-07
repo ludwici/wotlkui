@@ -4,12 +4,14 @@
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="wotklui, texture, lua, xml, trinitycore, trinity, mangos, cmangos, azerothcore, script, scripting, doc, docs, documentation, ui, addons, wotlk" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Texture &mdash; wotlkui 1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b32f7e3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e15024b2" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -17,6 +19,7 @@
       <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -62,7 +65,12 @@
 <li class="toctree-l2"><a class="reference internal" href="FontString.html">FontString</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Frame.html">Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GameTooltip.html">GameTooltip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LayoutFrame.html">LayoutFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LayoutFrame.html">LayoutFrame</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LayoutFrame.html#inheritance">Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LayoutFrame.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LayoutFrame.html#elements">Elements</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="MessageFrame.html">MessageFrame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Minimap.html">Minimap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Model.html">Model</a></li>
@@ -95,6 +103,10 @@
 <li class="toctree-l2"><a class="reference internal" href="WorldFrame.html">WorldFrame</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../scripts/Texture.html">Texture</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -125,7 +137,7 @@
   <section id="texture">
 <span id="xml-texture"></span><h1>Texture<a class="headerlink" href="#texture" title="Link to this heading"></a></h1>
 <p><strong>&lt;Texture&gt;</strong> (inherits from <a class="reference internal" href="LayoutFrame.html#xml-layoutframe"><span class="std std-ref">&lt;LayoutFrame&gt;</span></a>, creates a Texture widget) draws an image, solid color, or gradient.
-Textures are layered UI elements, meaning they must be inside &lt;Layers&gt;&lt;Layer&gt; tags.</p>
+Textures are layered UI elements, meaning they must be inside &lt;Layer&gt; tag.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Texture&gt;</span>
 <span class="w">    </span><span class="nt">&lt;TexCoords</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;Color</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -136,7 +148,7 @@ Textures are layered UI elements, meaning they must be inside &lt;Layers&gt;&lt;
 <section id="attributes">
 <h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><strong>file</strong> (string <abbr title="optional">?</abbr>) - resource file path to the texture image</p></li>
+<li><p><strong>file</strong> (string <abbr title="optional">?</abbr>) - Resource file path to the texture image</p></li>
 <li><p><strong>alphaMode</strong> (APLHAMODE <abbr title="optional">?</abbr>) - Blending mode</p></li>
 <li><p><strong>alpha</strong> (float <abbr title="optional">?</abbr>) - Set opacity from 0 to 1 (default value)</p></li>
 <li><p><strong>nonBlocking</strong> (boolean <abbr title="optional">?</abbr>) - <abbr title="Needs summary">?</abbr></p></li>
@@ -155,7 +167,20 @@ Textures are layered UI elements, meaning they must be inside &lt;Layers&gt;&lt;
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
 <p>The graphic may be an image loaded by Blizzard or an addon, or it may be a solid color or gradient. Textures support partially transparent images and different strategies for blending these into other images. They may be changed to show only a portion of a loaded image using texture coordinates. Note: The Texture must be within a &lt;Layer&gt;.</p>
-</section>
+<p>The file can be in BLP or TGA format.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The dimension of the picture should be a multiple of two. For example 32x32, 128x64, 512x1024, etc.</p>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Scripts</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="../scripts/Texture.html#scripts-texture-show"><span class="std std-ref">Show()</span></a></p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="../scripts/Texture.html#scripts-texture-hide"><span class="std std-ref">Hide()</span></a></p></li>
+</ul>
+</div>
+</details></section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Texture</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;AuctionDressUpBackgroundBot&quot;</span><span class="nt">&gt;</span>
@@ -167,7 +192,7 @@ Textures are layered UI elements, meaning they must be inside &lt;Layers&gt;&lt;
 <span class="nt">&lt;/Texture&gt;</span>
 </pre></div>
 </div>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Frame</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;MyPanelFrame&quot;</span><span class="w"> </span><span class="na">inherits=</span><span class="s">&quot;UIPanelDialogTemplate&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Frame</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;MyPanelFrame&quot;</span><span class="w"> </span><span class="na">parent=</span><span class="s">&quot;UIParent&quot;</span><span class="w"> </span><span class="na">inherits=</span><span class="s">&quot;UIPanelDialogTemplate&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;Size</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;200&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;170&quot;</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;Anchors&gt;</span>
 <span class="w">        </span><span class="nt">&lt;Anchor</span><span class="w"> </span><span class="na">point=</span><span class="s">&quot;CENTER&quot;</span><span class="nt">/&gt;</span>
@@ -194,18 +219,26 @@ Textures are layered UI elements, meaning they must be inside &lt;Layers&gt;&lt;
 </pre></div>
 </div>
 <p>Or using lua</p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">tex1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">MyPanelFrame</span><span class="p">:</span><span class="nf">CreateTexture</span><span class="p">()</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">CreateFrame</span><span class="p">(</span><span class="s2">&quot;Frame&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;MyPanelFrame&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">UIParent</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;UIPanelDialogTemplate&quot;</span><span class="p">)</span>
+<span class="nv">frame</span><span class="p">:</span><span class="nf">SetSize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">170</span><span class="p">)</span>
+<span class="nv">frame</span><span class="p">:</span><span class="nf">SetPoint</span><span class="p">(</span><span class="s2">&quot;CENTER&quot;</span><span class="p">)</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">tex1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">frame</span><span class="p">:</span><span class="nf">CreateTexture</span><span class="p">()</span>
 <span class="nv">tex1</span><span class="p">:</span><span class="nf">SetSize</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
 <span class="nv">tex1</span><span class="p">:</span><span class="nf">SetPoint</span><span class="p">(</span><span class="s2">&quot;TOPLEFT&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">30</span><span class="p">)</span>
 <span class="nv">tex1</span><span class="p">:</span><span class="nf">SetTexture</span><span class="p">(</span><span class="s2">&quot;Interface/Tooltips/UI-Tooltip-Background&quot;</span><span class="p">)</span>
 <span class="nv">tex1</span><span class="p">:</span><span class="nf">SetVertexColor</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span>
 
-<span class="kd">local</span><span class="w"> </span><span class="nv">tex2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">MyPanelFrame</span><span class="p">:</span><span class="nf">CreateTexture</span><span class="p">()</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">tex2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">frame</span><span class="p">:</span><span class="nf">CreateTexture</span><span class="p">()</span>
 <span class="nv">tex2</span><span class="p">:</span><span class="nf">SetSize</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
 <span class="nv">tex2</span><span class="p">:</span><span class="nf">SetPoint</span><span class="p">(</span><span class="s2">&quot;BOTTOMRIGHT&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
 <span class="nv">tex2</span><span class="p">:</span><span class="nf">SetTexture</span><span class="p">(</span><span class="s2">&quot;Interface/Tooltips/UI-Tooltip-Background&quot;</span><span class="p">)</span>
 <span class="nv">tex2</span><span class="p">:</span><span class="nf">SetVertexColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In XML you can just set the color. In lua you should set texture, and then change the color.</p>
 </div>
 <img alt="../_images/example1.jpg" src="../_images/example1.jpg" />
 </section>

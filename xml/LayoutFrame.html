@@ -4,12 +4,14 @@
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="wotklui, layout, layoutframe, layoutframetype, lua, xml, trinitycore, trinity, mangos, cmangos, azerothcore, script, scripting, doc, docs, documentation, ui, addons, wotlk" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LayoutFrame &mdash; wotlkui 1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=b32f7e3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e15024b2" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -17,6 +19,7 @@
       <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -62,7 +65,12 @@
 <li class="toctree-l2"><a class="reference internal" href="FontString.html">FontString</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Frame.html">Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GameTooltip.html">GameTooltip</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">LayoutFrame</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">LayoutFrame</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inheritance">Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elements">Elements</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="MessageFrame.html">MessageFrame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Minimap.html">Minimap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Model.html">Model</a></li>
@@ -95,6 +103,10 @@
 <li class="toctree-l2"><a class="reference internal" href="WorldFrame.html">WorldFrame</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../scripts/Texture.html">Texture</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -124,6 +136,37 @@
              
   <section id="layoutframe">
 <span id="xml-layoutframe"></span><h1>LayoutFrame<a class="headerlink" href="#layoutframe" title="Link to this heading"></a></h1>
+<p><strong>&lt;LayoutFrame&gt;</strong> - base tag for many UI elements.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;LayoutFrame&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Size</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Anchors</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Animations</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/LayoutFrame&gt;</span>
+</pre></div>
+</div>
+<section id="inheritance">
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="Link to this heading"></a></h2>
+<p>Inherited by: <a class="reference internal" href="Frame.html#xml-frame"><span class="std std-ref">Frame</span></a>, <a class="reference internal" href="FontString.html#xml-fontstring"><span class="std std-ref">FontString</span></a>, <a class="reference internal" href="Texture.html#xml-texture"><span class="std std-ref">Texture</span></a></p>
+</section>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>name</strong> (string <abbr title="optional">?</abbr>) - Set unique global name of element</p></li>
+<li><p><strong>inherits</strong> (string <abbr title="optional">?</abbr>) - Name of the base frame whose parameters will be borrowed</p></li>
+<li><p><strong>virtual</strong> (boolean <abbr title="optional">?</abbr>) - Make this frame virtual. The frame itself will not exist and can only be as a base frame for other interface elements. <strong>name</strong> required in this case</p></li>
+<li><p><strong>setAllPoints</strong> (boolean <abbr title="optional">?</abbr>) - Set anchors to <em>TOPLEFT</em> and <em>BOTTOMRIGHT</em> of parent frame</p></li>
+<li><p><strong>hidden</strong> (boolean <abbr title="optional">?</abbr>) - If true frame will not showed by default</p></li>
+<li><p><strong>parentKey</strong> (string <abbr title="optional">?</abbr>) - Create frame identifier and added it to parent</p></li>
+</ul>
+</section>
+<section id="elements">
+<h2>Elements<a class="headerlink" href="#elements" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Size</strong></p></li>
+<li><p><strong>Anchors</strong></p></li>
+<li><p><strong>Animations</strong></p></li>
+</ul>
+</section>
 </section>
 
 
