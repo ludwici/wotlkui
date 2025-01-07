@@ -36,6 +36,19 @@ Summary
 -------
 The graphic may be an image loaded by Blizzard or an addon, or it may be a solid color or gradient. Textures support partially transparent images and different strategies for blending these into other images. They may be changed to show only a portion of a loaded image using texture coordinates. Note: The Texture must be within a <Layer>.
 
+The file can be in BLP or TGA format.
+
+.. important::
+    The dimension of the picture should be a multiple of two. For example 32x32, 128x64, 512x1024, etc.
+
+
+.. dropdown:: Scripts
+
+    * :ref:`Show()<scripts_Texture_Show>`
+
+    * :ref:`Hide()<scripts_Texture_Hide>`
+
+
 Examples
 --------
 
