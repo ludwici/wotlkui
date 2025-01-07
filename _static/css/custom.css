@@ -24,6 +24,8 @@
     --main-background-color: #1a1c27;
     --system-font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --monospace-font-family: "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, Courier, monospace;
+
+    --sd-color-card-border: #575a7b;
 }
 
 body,
@@ -125,4 +127,9 @@ body {
 
 hr {
     border-top: 1px solid #575a7b;
+}
+
+.sd-card, details.sd-dropdown:not([open])>.sd-card-header {
+    border-radius: 0;
+    border-width: 3px;
 }
