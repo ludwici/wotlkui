@@ -1,0 +1,128 @@
+@font-face {
+    font-family: "JetBrains Mono";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("fonts/JetBrainsMono-Regular.woff2");
+}
+@font-face {
+    font-family: "JetBrains Mono";
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    src: url("fonts/JetBrainsMono-Medium.woff2");
+}
+@font-face {
+    font-family: "JetBrains Mono";
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url("fonts/JetBrainsMono-Bold.woff2");
+}
+
+:root {
+    --main-background-color: #1a1c27;
+    --system-font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --monospace-font-family: "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, Courier, monospace;
+}
+
+body,
+input[type="text"],
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+textarea,
+.btn {
+    font-family: var(--system-font-family);
+}
+
+code,
+.rst-content div[class^=highlight] pre {
+    font-family: var(--monospace-font-family);
+    font-size: 14px;
+}
+
+.wy-nav-content {
+    max-width: none;
+}
+
+.wy-nav-content-wrap {
+    min-height: unset;
+}
+
+.wy-nav-content,
+.wy-body-for-nav {
+    background: var(--main-background-color) !important;
+}
+
+.wy-menu-vertical li.current {
+    background: #101114;
+}
+
+body {
+    color: #cfcfcf;
+}
+
+.wy-menu-vertical li.toctree-l2 a, .wy-menu-vertical li.toctree-l3 a, .wy-menu-vertical li.toctree-l4 a, .wy-menu-vertical li.toctree-l5 a, .wy-menu-vertical li.toctree-l6 a, .wy-menu-vertical li.toctree-l7 a, .wy-menu-vertical li.toctree-l8 a, .wy-menu-vertical li.toctree-l9 a, .wy-menu-vertical li.toctree-l10 a {
+    color: #dbdbe1;
+}
+
+.wy-menu-vertical li.toctree-l2.current>a, .wy-menu-vertical li.toctree-l2.current li.toctree-l3>a {
+    background: var(--main-background-color);
+}
+
+.wy-menu-vertical li.current a {
+    border-right: none;
+}
+
+.rst-content div[class^=highlight], .rst-content pre.literal-block {
+    border: 3px solid #575a7b;
+}
+
+.highlight {
+    background: #14151c;
+}
+
+.highlight .nt {
+    color: #008075;
+}
+
+.highlight .na {
+    color: #adadad;
+}
+
+.highlight .s {
+    color: #239537;
+}
+
+.highlight .kd, .highlight .kc {
+    color: #b3b3b3;
+}
+
+.highlight .nv {
+    color: #24b4d7;
+}
+
+.highlight .nf {
+    color: #d5be78;
+}
+
+.highlight .mi, .highlight .mf {
+    color: #e5551c;
+}
+
+.highlight .kr {
+    color: #a56dcd;
+}
+
+.highlight .nb {
+    color: #00cd83;
+}
+
+.highlight .s2 {
+    color: #239537;
+}
+
+hr {
+    border-top: 1px solid #575a7b;
+}
